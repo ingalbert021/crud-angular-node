@@ -1,0 +1,57 @@
+
+
+
+<div class="linea"></div>
+<!--Menu-->
+    <nav class="h-14 navbar pt-8 navbar-expand-lg navbar-light bg-primary">
+<!--Logo-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link btn ml-4 bg-primary text-white"  [routerLink]="['/']">Inicio</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link btn ml-4 bg-primary text-white"  [routerLink]="['/formulario']">Formulario</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link btn ml-4 bg-primary text-white " [routerLink]="['/Registros']">Registros</a>
+      </li>
+
+
+    </ul>
+    <!---Buscador--->
+<div [ngClass]="{
+    'buscador-block': buscador == 'buscador'
+   
+    
+
+    }">
+
+   <form #searchForm="ngForm" (ngSubmit)="goSearch()" class="form-inline my-2 my-lg-0 float-right" id="buscar" action="#" method="POST">
+      <input class="form-control mr-sm-2" name="busqueda"  type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchString"/>
+      
+      <button class="btn btn-primary  my-2 my-sm-0" type="submit">Buscador</button>
+    </form>
+  </div>
+  </div>
+
+<div [ngClass]="{
+    'logo': logo == 'logo',
+    'buscador-block': logo == 'buscador'
+
+   
+    }">
+    
+           <img src="/../../.././assets/img/logo.svg" class="app-logo" alt="Logotipo" />
+          <h4>AlbertGamers</h4>
+                </div>
+
+ <button class="navbar-toggler" type="button" data-toggle="collapse" 
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </nav>

@@ -1,0 +1,82 @@
+<!---cabecera  de la pagina-->
+<app-header
+[buscador]="'buscador'"
+[logo]="'logo'"
+></app-header>
+
+<!---Cuerpo de la pagina-->
+<div class="container mt-5">
+  <div class="row">
+<div class="col-12">
+
+<h1 class="center text-center">{{page_title}}</h1>
+
+
+
+<form #registroForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="Nombre">Nombre</label>
+    <input type="text" name="nombre" class="form-control"  placeholder="introduzca el nombre del articulo" 
+    #nombre="ngModel" [(ngModel)]="registro.nombre"
+    required />
+
+    <small *ngIf="!nombre.valid && nombre.touched">
+      <div class="alert alert-danger" role="alert">
+       El Nombre  no es valido!!
+      </div>
+    </small>
+<br>
+    <label for="contenido">Contenido</label>
+    <input type="text" name="contenido" class="form-control"  placeholder="introduzca el contenido"
+    #contenido="ngModel" [(ngModel)]="registro.contenido"
+       required />
+
+    <small *ngIf="!contenido.valid && contenido.touched">
+       <div class="alert alert-danger" role="alert">
+       El contenido no es valido!!
+      </div>
+    </small>
+<br>
+
+
+     <label for="cantidad">Cantidad</label>
+    <input type="text" name="cantidad" class="form-control"  placeholder="introduzca solo Numeros!"
+    #cantidad="ngModel" [(ngModel)]="registro.cantidad" required pattern="[0-9]+"/>
+        <small *ngIf="!cantidad.valid && cantidad.touched ">
+           <div class="alert alert-danger" role="alert">
+        introduzca solo numeros !!
+      </div>
+    </small>
+<br>
+    
+    <label for="Descripcion">Descripcion</label>
+     <textarea name="descripcion" class="form-control" name="Descripcion" id="Descripcion" cols="30" rows="5"
+     #descripcion="ngModel" [(ngModel)]="registro.descripcion" required></textarea>
+
+    <small *ngIf="!descripcion.valid && descripcion.touched">
+      <div class="alert alert-danger" role="alert">
+ La descripcion no es valido!!
+      </div>
+     </small>
+<br>
+
+     
+ <input type="submit" value="Enviar" class="btn btn-primary" [disabled]="registroForm.invalid" />
+
+  </div>
+ 
+ 
+</form>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+

@@ -1,0 +1,67 @@
+ <div class="container mb-5">
+    <div class="row">
+    	
+    	<div *ngIf="!registros">
+    		<button class="offset-4 btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  <span class="sr-only">Cargando datos...</span>
+</button>
+<button class="  btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Cargando Datos...
+</button>
+    	</div>
+
+
+    	<div *ngIf="registros && registros.length == 0">
+    		<div class=" offset-4 alert alert-danger" role="alert">
+	El articulo buscado no existe, Intente con otro
+
+</div>
+    	</div>
+		
+
+
+			<hr>
+		
+		<table *ngIf="registros"  class="table table-hover mb-5">
+		  <thead>
+
+		    <tr>
+		    <th scope="col">Numero</th>
+		      <th scope="col">Fecha</th>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Contenido</th>
+		      <th scope="col">Cantidad</th>
+		      <th scope="col">Descripcion</th>
+		     <!--condicion para que no se muestren los botones de edicion---> 
+		      <div [ngClass]="{
+    	'buscador-block': inicio == 'inicio'
+   		 }">
+		      <th scope="col">Edicion y Creacion</th>
+		  		</div>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr *ngFor="let item of registros; let i = index; ">
+		      <td>{{i}}</td>
+		      <td>{{item.date | amLocale: 'es' | amTimeAgo }}</td>
+		      <td>{{item.nombre}}</td>
+		      <td>{{item.contenido}}</td>
+		      <td>{{item.cantidad}}</td>
+		      <td>{{item.descripcion}}</td>
+		    	 <!--condicion para que no se muestren los botones de edicion---> 
+		    	<div [ngClass]="{
+   		 'buscador-block': inicio == 'inicio'
+ 		   }">
+		      <td> <a class=" nav-link btn ml-4 bg-warning text-white"  [routerLink]="['editar/', item._id]" >Editar</a></td>
+		       <td> <a class=" nav-link btn ml-4 bg-danger text-white"  (click)="delete(item._id)" >Borrar</a></td>
+		   		</div>
+		    </tr>
+
+		  </tbody>
+		</table>
+
+		
+</div>
+</div>
