@@ -6,6 +6,7 @@ var port = 3000;
 
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
+//conexion
 mongoose.connect('mongodb://localhost:27017/api_rest_registros', {useNewUrlParser: true })
 		.then(() => {
 			console.log('la conexion a la base de datos se a realizado bien!!');
