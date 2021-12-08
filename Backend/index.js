@@ -2,11 +2,11 @@
 
 var mongoose = require('mongoose');
 var app = require('./app');
-var port = 3000;
+var port = 3200;
 
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/api_rest_registros', {useNewUrlParser: true })
+mongoose.connect('mongodb+srv://crud:crud@crud.k99it.mongodb.net/crud?retryWrites=true&w=majorit', {useNewUrlParser: true })
 		.then(() => {
 			console.log('la conexion a la base de datos se a realizado bien!!');
 
