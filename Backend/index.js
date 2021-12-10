@@ -6,7 +6,7 @@ var port = 3000;
 
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://crud:crud@crud.k99it.mongodb.net/crud?retryWrites=true&w=majorit', {useNewUrlParser: true })
+mongoose.connect('mongodb+srv://crud:crud@crud.odd9t.mongodb.net/crud?retryWrites=true&w=majority', {useNewUrlParser: true })
 		.then(() => {
 			console.log('la conexion a la base de datos se a realizado bien!!');
 
